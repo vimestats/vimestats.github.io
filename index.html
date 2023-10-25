@@ -1,455 +1,462 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
+<!DOCTYPE html><html lang="ru" data-theme="dark"><head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VimeCount</title>
-    <meta name="description" content="Статичный сайт созданный для работы c API VimeWorld." />
-    <link rel="icon" href="icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="icons/icons-minecraft-0.46.css" rel="stylesheet" type="text/css">
-    <link href="css/minecraft-skinviewer.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-   <div class="container animate__animated animate__fadeIn" style="padding-top: 10px;">
-      <div class="tile is-ancestor">
-        <div class="tile is-vertical is-3">
-            <div class="tile is-parent">
-              <article class="tile is-child">
-                <div class="box head">
-                  <div class="hero-body hero-panel">
-                  <h1 class="title is-3 has-text-centered">Vime<span class="is-2 has-text-primary">Stats</span><p class="subtitle is-4">Онлайн: <span class="has-text-primary" id="online"></span></p>
-                  </h1>
-                  </div>
-                  <div class="level-item menu">
-                  <div class="field has-addons is-rounded">
-                    <p class="control"><input class="input is-primary is-rounded" type="text" placeholder="Никнейм" id="input-in"></p>
-                    <div class="dropdown is-right">
-                        <p class="control">
-                          <button class="button is-primary arrow" aria-haspopup="true" aria-controls="nicks"><i class="ri-arrow-down-s-line"></i></button>
-                        </p>
-                      <div class="dropdown-menu" id="nicks" role="menu">
-                        <div class="dropdown-content has-text-weight-medium">
-                          <div class="dropdown-item has-text-centered"><p class="is-size-6">Избранные ники</p></div>
-                          <div class="dropdown-item"></div>
-                          <div class="dropdown-item op"><a class="m-2 is-size-5 bm0"><i class="ri-save-3-fill"></i></a><span class="nick_bs0 bs"></span></div>
-                          <div class="dropdown-item op"><a class="m-2 is-size-5 bm1"><i class="ri-save-3-fill"></i></a><span class="nick_bs1 bs"></span></div>
-                          <div class="dropdown-item op"><a class="m-2 is-size-5 bm2"><i class="ri-save-3-fill"></i></a><span class="nick_bs2 bs"></span></div>
-                          <div class="dropdown-item op"><a class="m-2 is-size-5 bm3"><i class="ri-save-3-fill"></i></a><span class="nick_bs3 bs"></span></div>
-                          <div class="dropdown-item op"><a class="m-2 is-size-5 bm4"><i class="ri-save-3-fill"></i></a><span class="nick_bs4 bs"></span></div>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="control"><button class="button is-primary is-rounded" id="search"><i class="ri-search-line"></i></button></p>
-                  </div>
-                </div>
-                </div>
-                <div class="box">
-                  <p>
-                    <img class="avatar" id="skin">
-                    <span class="tagsss">
-                      <span class="has-text-weight-medium tag is-link is-rounded m-1 is-medium" id="session">Статус</span>
-                      <span class="has-text-weight-medium tag is-warning has-text-white is-rounded m-1 is-medium hide" id="star">★</span>
-                    </span>
-                  </p>
-                  <p class="title has-text-centered"><span class="m-1" id="nick">Никнейм</span></p>
-                  <div class="field has-addons subtitle is-rounded">
-                    <progress class="progress is-primary is-large m-1" id="barr" value="0" max="100"></progress>
-                    <span class="tag is-primary is-rounded has-text-weight-medium m-1" id="lvl"></span>
-                  </div>
-          <div class="container skin-container"> 
-            <!-- Skin Viewer HTML Elements -->
-            <div id="skin-viewer" class="mc-skin-viewer-9x legacy cape spin" style="padding-top: 20px;">
-              <div class="player">
-                <!-- Head -->
-                <div class="head">
-                  <div class="top st3d"></div>
-                  <div class="left st3d"></div>
-                  <div class="front st3d"></div>
-                  <div class="right st3d"></div>
-                  <div class="back st3d"></div>
-                  <div class="bottom st3d"></div>
-                  <div class="accessory">
-                    <div class="top st3d"></div>
-                    <div class="left st3d"></div>
-                    <div class="front st3d"></div>
-                    <div class="right st3d"></div>
-                    <div class="back st3d"></div>
-                    <div class="bottom st3d"></div>
-                  </div>
-                </div>
-                <!-- Body -->
-                <div class="body">
-                  <div class="top st3d"></div>
-                  <div class="left st3d"></div>
-                  <div class="front st3d"></div>
-                  <div class="right st3d"></div>
-                  <div class="back st3d"></div>
-                  <div class="bottom st3d"></div>
-                  <div class="accessory">
-                    <div class="top st3d"></div>
-                    <div class="left st3d"></div>
-                    <div class="front st3d"></div>
-                    <div class="right st3d"></div>
-                    <div class="back st3d"></div>
-                    <div class="bottom st3d"></div>
-                  </div>
-                </div>
-                <!-- Left Arm -->
-                <div class="left-arm">
-                  <div class="top st3d"></div>
-                  <div class="left st3d"></div>
-                  <div class="front st3d"></div>
-                  <div class="right st3d"></div>
-                  <div class="back st3d"></div>
-                  <div class="bottom st3d"></div>
-                  <div class="accessory">
-                    <div class="top st3d"></div>
-                    <div class="left st3d"></div>
-                    <div class="front st3d"></div>
-                    <div class="right st3d"></div>
-                    <div class="back st3d"></div>
-                    <div class="bottom st3d"></div>
-                  </div>
-                </div>
-                <!-- Right Arm -->
-                <div class="right-arm">
-                  <div class="top st3d"></div>
-                  <div class="left st3d"></div>
-                  <div class="front st3d"></div>
-                  <div class="right st3d"></div>
-                  <div class="back st3d"></div>
-                  <div class="bottom st3d"></div>
-                  <div class="accessory">
-                    <div class="top st3d"></div>
-                    <div class="left st3d"></div>
-                    <div class="front st3d"></div>
-                    <div class="right st3d"></div>
-                    <div class="back st3d"></div>
-                    <div class="bottom"></div>
-                  </div>
-                </div>
-                <!-- Left Leg -->
-                <div class="left-leg">
-                  <div class="top st3d"></div>
-                  <div class="left st3d"></div>
-                  <div class="front st3d"></div>
-                  <div class="right st3d"></div>
-                  <div class="back st3d"></div>
-                  <div class="bottom st3d"></div>
-                  <div class="accessory">
-                    <div class="top st3d"></div>
-                    <div class="left st3d"></div>
-                    <div class="front st3d"></div>
-                    <div class="right st3d"></div>
-                    <div class="back st3d"></div>
-                    <div class="bottom st3d"></div>
-                  </div>
-                </div>
-                <!-- Right Leg -->
-                <div class="right-leg">
-                  <div class="top st3d"></div>
-                  <div class="left st3d"></div>
-                  <div class="front st3d"></div>
-                  <div class="right st3d"></div>
-                  <div class="back st3d"></div>
-                  <div class="bottom st3d"></div>
-                  <div class="accessory">
-                    <div class="top st3d"></div>
-                    <div class="left st3d"></div>
-                    <div class="front st3d"></div>
-                    <div class="right st3d"></div>
-                    <div class="back st3d"></div>
-                    <div class="bottom st3d"></div>
-                  </div>
-                </div>
-                <!-- Cape -->
-                <div class="cape ct3d">
-                  <div class="top ct3d"></div>
-                  <div class="left ct3d"></div>
-                  <div class="front ct3d"></div>
-                  <div class="right ct3d"></div>
-                  <div class="back ct3d"></div>
-                  <div class="bottom ct3d"></div>
-               </div>
-              </div>
+    <title>Тима Белорусских - Официальный сайт</title><meta name="description" content="Официальный сайт Тимы Белорусских - белорусского певца, автора песен, композитора и музыканта."><meta name="keywords" content="Тима Белорусских официальный сайт, Тима Белорусских"><link rel="shortcut icon" href="images/favicon.png"><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/index.css"></head>
+<body data-user="">
+    <header>
+        <a class="logo" href="/"></a>
+        <div class="menu-box">
+            <div class="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-          </div>
-        <div style="padding-top: 10px;">
-          <div class="button_a">
-          <button class="button is-primary is-rounded button_b" id="showModal" style="margin-right: 10px;"><i class="ri-information-line"></i></button>
-          <a class="button is-primary is-rounded button_b" href="https://www.donationalerts.com/r/miuno" target="_blank"><i class="ri-cup-line" style="padding-right: 3px;"></i></a>
-          </div>
-          </div>
-      </div>
-          <div class="modal">
-            <div class="modal-background" id="close"></div>
-            <div class="modal-card window">
-              <header class="modal-card-head">
-                <p class="modal-card-title">О сайте</p>
-              </header>
-              <section class="modal-card-body">
-                <p class="is-size-6">
-                  Статичный сайт созданный для работы c <a href="https://api.vimeworld.ru">API VimeWorld</a>, на сайте можно просматривать глобальную и месячную статистику, а также расширенную по ограниченному списку мини-игр. Такую как: средний показатель по играм, сравнение показателей глобальной и месячной статистики. Благодаря <a href="https://github.com/rkkoszewski"><i class="ri-github-fill"></i>rkkoszewski</a> на сайте есть 3D визуализация скина и плаща игрока.
-                </p>
-              </section>
-              <footer class="modal-card-foot">
-                  <div class="field is-grouped is-grouped-multiline">
-                    <div class="control">
-                      <div class="tags has-addons">
-                        <span class="tag is-dark is-rounded"><i class="ri-external-link-line"></i></span>
-                        <span class="tag is-primary is-rounded"><a class="has-text-white" href="https://miuno.ru/" target="_blank">MIUNO</a></span>
-                      </div>
-                    </div>
-                    <div class="control">
-                      <div class="tags has-addons">
-                        <span class="tag is-dark is-rounded"><i class="ri-hand-heart-fill"></i></span>
-                        <span class="tag is-danger is-rounded"><a class="has-text-white" href="https://www.donationalerts.com/r/miuno" target="_blank">Donate</a></span>
-                      </div>
-                    </div>
-                    <div class="control">
-                      <div class="tags has-addons">
-                        <span class="tag is-dark is-rounded"><i class="ri-github-fill"></i></span>
-                        <span class="tag is-info is-rounded"><a class="has-text-white" href="https://github.com/MIUNO" target="_blank">GitHub</a></span>
-                      </div>
-                    </div>
-                    <div class="control">
-                      <div class="tags has-addons">
-                        <span class="tag is-dark is-rounded"><i class="ri-github-fill"></i></span>
-                        <span class="tag is-info is-rounded"><a class="has-text-white" href="https://github.com/MIUNO/VimeCount" target="_blank">Sources</a></span>
-                      </div>
-                    </div>
-                  </div>
-                </footer>
-              </div>
+            <nav>
+                <div class="ws-menu" id="ws-menu-1"><div class="item "><a href="/music">Музыка</a></div><div class="item "><a href="/concerts">Концерты</a></div><div class="item "><a href="/shop">Магазин</a></div><div class="item "><a href="/blog">Блог</a></div><div class="item "><a href="/biography">Биография</a></div><div class="item "><a href="#footer">Контакты</a></div></div>            </nav>
+            <br>            <div class="socials-mobile">
+                <a class="icon insta" href="https://www.instagram.com/belorusskih.love/"></a>
+                <a class="icon tg" href="https://t.me/belorusskih1love"></a>
+                <a class="icon tg-bot" href="https://t.me/belorusskih_love_bot"></a>
+                <a class="icon vk" href="https://vk.com/belorusskih"></a>
+                <a class="icon yt" href="https://www.youtube.com/channel/UC2MmSxjVS8QLVqyTl28WCzw"></a>
+                <a class="icon tiktok" href="https://www.tiktok.com/@tima.belorusskih"></a>
             </div>
-        </article>
-      </div>
-  </div>
-        <div class="tile is-parent">
-          <article class="tile is-child">
-                <div class="columns is-multiline">
-                  <div class="column is-6"> <!--BedWars-->
-                    <div class="box">
-                      <nav class="navbar tabs is-toggle is-toggle-rounded" role="navigation" aria-label="main navigation">
-                        <div class="navbar-brand"><h1 class="navbar-item title is-4">BedWars</h1></div>
-                          <ul class="navbar-color">
-                            <li class="tab m-1 is-active" data-tab="bw1" data-tabset="bw"><a><i class="ri-global-line"></a></i>
-                            <li class="tab m-1" data-tab="bw2" data-tabset="bw"><a><i class="ri-calendar-2-line"></i></a></li>
-                            <li class="tab m-1" data-tab="bw3" data-tabset="bw"><a><i class="ri-line-chart-fill"></i></a></li>
-                          </ul>
-                        </nav>
-                      <div class="content-tab" data-tabsettarget="bw">
-                        <div class="tab-pane is-active" data-tabtarget="bw1">
-                        <p class="is-size-4 has-text-centered">За всё время</p>
-                        <div class="is-size-5">
-                        <p>Убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwkg">...</span></p>
-                        <p>Смертей <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwdg">...</span></p>
-                        <p>Игр <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwgg">...</span></p>
-                        <p>Побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwwg">...</span></p>
-                        <p>Сломаных кроватей <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwbBg">...</span></p>
-                        <hr>
-                        <p>Коэффициент убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwkdg">...</span></p>
-                        <p>Коэффициент побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwgwg">...</span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwkgg">...</span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwwdg">...</span></p>
-                        <p>Сломанных кроватей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwbg">...</span></p>
-                        </div>
-                        </div>
-                        <div class="tab-pane" data-tabtarget="bw2">
-                        <p class="is-size-4 has-text-centered">За месяц</p>
-                        <div class="is-size-5">
-                        <p>Убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwkm"></span></p>
-                        <p>Смертей <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwdm"></span></p>
-                        <p>Игр <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwgm"></span></p>
-                        <p>Побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwwm"></span></p>
-                        <p>Сломаных кроватей <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwbBm"></span></p>
-                        <hr>
-                        <p>Коэффициент убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwkdm"></span></p>
-                        <p>Коэффициент побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwgwm"></span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwkgm"></span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwwdm"></span></p>
-                        <p>Сломанных кроватей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="bwbm"></span>
-                        </div>
-                        </div>
-                        <div class="tab-pane" data-tabtarget="bw3">
-                        <p class="is-size-4 has-text-centered">Изменение статистики</p>
-                        <div class="is-size-5">
-                        <p>Коэффициента убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabbwkd"></span></p>
-                        <p>Коэффициента побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabbwgw"></span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabbwgm"></span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabbwdg"></span></p>
-                        <p>Сломанных кроватей <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabbwbg"></span></p>
-                        </div>
-                        <div id="chart_bw"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="column is-6"> <!--SkyWars-->
-                    <div class="box">
-                      <nav class="navbar tabs is-toggle is-toggle-rounded" role="navigation" aria-label="main navigation">
-                        <div class="navbar-brand"><h1 class="navbar-item title is-4">SkyWars</h1></div>
-                          <ul class="navbar-color">
-                            <li class="tab m-1 is-active" data-tab="sw1" data-tabset="sw"><a><i class="ri-global-line"></a></i>
-                            <li class="tab m-1" data-tab="sw2" data-tabset="sw"><a><i class="ri-calendar-2-line"></i></a></li>
-                            <li class="tab m-1" data-tab="sw3" data-tabset="sw"><a><i class="ri-line-chart-fill"></i></a></li>
-                          </ul>
-                        </nav>
-                      <div class="content-tab" data-tabsettarget="sw">
-                        <div class="tab-pane is-active" data-tabtarget="sw1">
-                        <p class="is-size-4 has-text-centered">За всё время</p>
-                        <div class="is-size-5">
-                        <p>Убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="swkg">...</span></p>
-                        <p>Смертей <span class="has-text-link has-text-weight-medium is-pulled-right" id="swdg">...</span></p>
-                        <p>Игр <span class="has-text-link has-text-weight-medium is-pulled-right" id="swgg">...</span></p>
-                        <p>Побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="swwg">...</span></p>
-                        <p>Серия побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="swwSg">...</span></p>
-                        <hr>
-                        <p>Коэффициент убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="swkdg">...</span></p>
-                        <p>Коэффициент побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="swgwg">...</span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="swkgg">...</span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="swdgg">...</span></p>
-                        </div>
-                        </div>
-                        <div class="tab-pane" data-tabtarget="sw2">
-                        <p class="is-size-4 has-text-centered">За месяц</p>
-                        <div class="is-size-5">
-                        <p>Убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="swkm"></span></p>
-                        <p>Смертей <span class="has-text-link has-text-weight-medium is-pulled-right" id="swdm"></span></p>
-                        <p>Игр <span class="has-text-link has-text-weight-medium is-pulled-right" id="swgm"></span></p>
-                        <p>Побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="swwm"></span></p>
-                        <p style="visibility: hidden;"><span class="has-text-link has-text-weight-medium is-pulled-right" id="swwSm"></span></p>
-                        <hr>
-                        <p>Коэффициент убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="swkdm"></span></p>
-                        <p>Коэффициент побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="swgwm"></span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="swkgm"></span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="swdgm"></span></p>
-                        </div>
-                        </div>
-                        <div class="tab-pane" data-tabtarget="sw3">
-                        <p class="is-size-4 has-text-centered">Изменение статистики</p>
-                        <div class="is-size-5">
-                        <p>Коэффициента убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabswkd"></span></p>
-                        <p>Коэффициента побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabswgw"></span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabswgm"></span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabswdg"></span></p>
-                        </div>
-                        <div id="chart_sw"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="column is-6"> <!--ClashPoint-->
-                    <div class="box">
-                      <nav class="navbar tabs is-toggle is-toggle-rounded" role="navigation" aria-label="main navigation">
-                        <div class="navbar-brand"><h1 class="navbar-item title is-4">ClashPoint</h1></div>
-                          <ul class="navbar-color">
-                            <li class="tab m-1 is-active" data-tab="cp1" data-tabset="cp"><a><i class="ri-global-line"></a></i>
-                            <li class="tab m-1" data-tab="cp2" data-tabset="cp"><a><i class="ri-calendar-2-line"></i></a></li>
-                            <li class="tab m-1" data-tab="cp3" data-tabset="cp"><a><i class="ri-line-chart-fill"></i></a></li>
-                          </ul>
-                        </nav>
-                      <div class="content-tab" data-tabsettarget="cp">
-                        <div class="tab-pane is-active" data-tabtarget="cp1">
-                        <p class="is-size-4 has-text-centered">За всё время</p>
-                        <div class="is-size-5">
-                        <p>Убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpkg">...</span></p>
-                        <p>Смертей <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpdg">...</span></p>
-                        <p>Игр <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpgg">...</span></p>
-                        <p>Побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpwg">...</span></p>
-                        <p>Сломанных точек  <span class="has-text-link has-text-weight-medium is-pulled-right" id="cprPBg">...</span></p>
-                        <hr>
-                        <p>Коэффициент убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpkdg">...</span></p>
-                        <p>Коэффициент побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpgwg">...</span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpkgg">...</span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpdgg">...</span></p>
-                        <p>Сломанных точек за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpbgg">...</span></p>
-                        </div>
-                        </div>
-                        <div class="tab-pane" data-tabtarget="cp2">
-                        <p class="is-size-4 has-text-centered">За месяц</p>
-                        <div class="is-size-5">
-                        <p>Убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpkm">...</span></p>
-                        <p>Смертей <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpdm">...</span></p>
-                        <p>Игр <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpgm">...</span></p>
-                        <p>Побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpwm">...</span></p>
-                        <p>Сломанных точек  <span class="has-text-link has-text-weight-medium is-pulled-right" id="cprPBm">...</span></p>
-                        <hr>
-                        <p>Коэффициент убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpkdm">...</span></p>
-                        <p>Коэффициент побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpgwm">...</span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpkgm">...</span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpdgm">...</span></p>
-                        <p>Сломанных точек за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="cpbgm">...</span></p>
-                        </div>
-                        </div>
-                        <div class="tab-pane" data-tabtarget="cp3">
-                        <p class="is-size-4 has-text-centered">Изменение статистики</p>
-                        <div class="is-size-5">
-                        <p>Коэффициента убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabcpkd"></span></p>
-                        <p>Коэффициента побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabcpgw"></span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabcpgm"></span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabcpdg"></span></p>
-                        <p>Сломанных точек <span class="has-text-link has-text-weight-medium is-pulled-right" id="tabcpbg"></span></p>
-                        </div>
-                        <div id="chart_cp"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="column is-6"> <!--Bridge-->
-                    <div class="box">
-                      <nav class="navbar tabs is-toggle is-toggle-rounded" role="navigation" aria-label="main navigation">
-                        <div class="navbar-brand"><h1 class="navbar-item title is-4">Bridge</h1></div>
-                          <ul class="navbar-color">
-                          </ul>
-                        </nav>
-                      <div class="content-tab">
-                        <div class="tab-pane is-active">
-                        <p class="is-size-4 has-text-centered">За всё время</p>
-                        <div class="is-size-5">
-                        <p>Убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="brk">...</span></p>
-                        <p>Смертей <span class="has-text-link has-text-weight-medium is-pulled-right" id="brd">...</span></p>
-                        <p>Игр <span class="has-text-link has-text-weight-medium is-pulled-right" id="brg">...</span></p>
-                        <p>Побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="brw">...</span></p>
-                        <p>Точек <span class="has-text-link has-text-weight-medium is-pulled-right" id="brp">...</span></p>
-                        <hr>
-                        <p>Коэффициент убийств <span class="has-text-link has-text-weight-medium is-pulled-right" id="brkd">...</span></p>
-                        <p>Коэффициент побед <span class="has-text-link has-text-weight-medium is-pulled-right" id="brgw">...</span></p>
-                        <p>Убийств за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="brkg">...</span></p>
-                        <p>Смертей за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="brdg">...</span></p>
-                        <p>Точек за игру <span class="has-text-link has-text-weight-medium is-pulled-right" id="brpg">...</span></p>
-                        </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-          </article>
+            <a href="mailto:belorusskihbooking@gmail.com" class="contact-mobile">belorusskihbooking@gmail.com</a>
         </div>
-      </div>
+        <button class="switcher-theme"></button>
+        <div class="currency" data-currency="usd">
+            <div class="change">$</div>
+            <div class="sub">
+                <span class="rub" data-currency="rur">₽</span>
+                <span class="byn" data-currency="byn">Br</span>
+                <span class="usd" data-currency="usd">$</span>
+            </div>
+        </div>
+        <div class="box">
+            <a class="cart" href="/cart"><span class="count">0</span></a>
+                        <a class="profile " href="/account"></a>
+        </div>
+                    <div class="window-background login" style="display: none;">
+                <div class="window-body">
+                    <div class="window-title">Войти</div>
+                    <div class="window-content">
+                        <form class="auth" method="POST" name="send-code">
+                            <div class="input">
+                                <label for="tel">Ваш номер телефона*</label>
+                                <input type="tel" name="tel" id="tel" required="">
+                                <span>Для авторизации введите номер телефона и получите код подтверждения из SMS. Формат ввода номера телефона +_____________</span>
+                            </div>
+                            <input type="submit" name="send-code" id="send-code" value="Выслать код" disabled="">
+                        </form>
+                        <form class="confirm-auth" method="POST" name="login">
+                            <div class="input">
+                                <label for="conf-code">Введите код подтверждения*</label>
+                                <input type="hidden" name="t">
+                                <input type="text" name="conf-code" id="conf-code" required="">
+                            </div>
+                            <input type="submit" name="submit-tel" id="submit-tel" value="Продолжить">
+                        </form>
+                        <div class="term-use">Продолжая, Вы соглашаетесь и принимаете <a href="/terms-of-use">Пользовательского соглашения</a></div>
+                    </div>
+                    <div class="back"></div>
+                    <div class="close"></div>
+                </div>
+            </div>
+                </header><main>
+    <section class="wr-main-slider hero">
+        <div class="main-slider">
+            <div class="arrows-box">
+                <div class="arrow-right"></div>
+                <span class="counter">01</span>
+                <div class="arrow-left"></div>
+            </div>
+            <div class="items slides">
+                                        <div class="item slide">
+                            <img src="images/main.png" alt="Сайт в разработке">
+                            <div class="dividers">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                                            </div>
+                            <div class="content">
+                                <h1 class="title">Сайт в разработке</h1>
+                                <p class="sub-title">В данный момент сайт находится в разработке, продажи товаров не осуществляются�&nbsp;</p>
+                                <a target="_blank" href="https://belorusskih.love/shop" class="btn">Магазин<span class="triangle"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.1897 1.02759L7.81039 5L1.1897 8.97241V1.02759Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg></span></a>                            </div>
+                        </div>
+                                                <div class="item slide">
+                            <img src="images/slayder-2.jpg" alt="Новый трек">
+                            <div class="dividers">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <img class="premiere" src="images/premiere.svg" alt="премьера">                            </div>
+                            <div class="content">
+                                <h1 class="title">Новый трек</h1>
+                                <p class="sub-title">"Воспоминания" на всех цифровых площадках</p>
+                                <a target="_blank" href="https://bfan.link/timavospominaniya" class="btn">СЛУШАТЬ<span class="triangle"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.1897 1.02759L7.81039 5L1.1897 8.97241V1.02759Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg></span></a>                            </div>
+                        </div>
+                                    </div>
+            <div class="bubles">
+                <div class="active"></div><div></div>            </div>
+        </div>
+    </section>
+    <section class="concerts">
+        <div class="wrapper">
+            <h2 class="scroll-reveal">Концерты
+                <span class="arrow">
+                    <svg class="animate-in" width="89" height="118" viewBox="0 0 89 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M74.3443 5.24202L44.0647 117.881L25.7204 112.966L56 0.326685L74.3443 5.24202Z" fill="#FF493D"></path>
+                    <path d="M88.223 92.4964L44.0647 117.881L34.5889 101.533L78.7273 76.0494L88.223 92.4964Z" fill="#FF493D"></path>
+                    <path d="M16.7511 59.4429L42.1934 103.51L25.7204 112.966L0.30407 68.9386L16.7511 59.4429Z" fill="#FF493D"></path>
+                    </svg>
+                </span>
+            </h2>
+            <div class="main-slider" data-timer="999999">
+                <div class="сoncerts-container slides">
+                                                <div class="item img sold  slide">
+                                                                    <img src="images/tima-piter.jpeg" alt="картинка концерта">
+                                	                                    <div class="sold"><img src="images/sold-out.svg" alt="слово распродано"></div>
+                                                                                                    <h2 class="date">26 мая 2023</h2>
+                                <h3 class="country">Санкт-Петербург</h3>
+                                <span class="location">А2</span>
+                                <a href="#" class="btn">Билеты <span class="arrow"></span></a>
+                                <div class="window-background tickets-bg" style="display: none;">
+                                    <div class="window-body">
+                                        <h2 class="window-title">26 мая 2023</h2>
+                                        <h3 class="country">Санкт-Петербург</h3>
+                                        <span class="location">А2</span>
+                                        <div class="window-content">
+                                            <div class="tickets">Билеты:</div>
+                                            <div class="ticket-box">
+												<a target="_blank" href="https://afisha.yandex.ru/saint-petersburg/concert/tima-belorusskikh-2023-05-26">Яндекс Афиша</a>                                            </div>
+                                        </div>
+                                        <span class="close"></span>
+                                    </div>
+                                </div>
+                            </div>
+                                                        <div class="item img sold  slide">
+                                                                    <img src="images/tima-moskva.jpeg" alt="картинка концерта">
+                                	                                    <div class="sold"><img src="images/sold-out.svg" alt="слово распродано"></div>
+                                                                                                    <h2 class="date">10 июня 2023</h2>
+                                <h3 class="country">Москва</h3>
+                                <span class="location">VK Stadium</span>
+                                <a href="#" class="btn">Билеты <span class="arrow"></span></a>
+                                <div class="window-background tickets-bg" style="display: none;">
+                                    <div class="window-body">
+                                        <h2 class="window-title">10 июня 2023</h2>
+                                        <h3 class="country">Москва</h3>
+                                        <span class="location">VK Stadium</span>
+                                        <div class="window-content">
+                                            <div class="tickets">Билеты:</div>
+                                            <div class="ticket-box">
+												<a target="_blank" href="https://msk.showgogo.ru/events/concerts/tima-belorusskikh-msk/">showgogo</a>                                            </div>
+                                        </div>
+                                        <span class="close"></span>
+                                    </div>
+                                </div>
+                            </div>
+                                            </div>
+                <div class="bubles">
+					<div class="active"></div><div></div>                </div>
+            </div>
+            <a class="btn all-concerts" href="/concerts">Все концерты</a>
+        </div>
+    </section>
+    <section class="shop scroll-reveal">
+        <div class="wrapper">
+            <h2>Магазин <span class="animate-in">new</span></h2>
+            <div class="sort">
+                <a href="/shop" data-content="all" class="btn active">Все товары</a>
+                <a href="/shop/t-shirts" data-content="t-shirt" class="btn">Футболки</a>
+                <a href="/shop/hoodie" data-content="hoodie" class="btn">Худи</a>
+                <a href="/shop/outerwear" data-content="outerwear" class="btn">Верхняя одежда</a>
+                <a href="/shop/accessories" data-content="accessories" class="btn">Аксессуары</a>
+                <a href="/shop/novelty" data-content="novelty" class="btn new">Новинки</a>
+            </div>
+            <div class="main-slider scroll-reveal" data-timer="999999">
+                <div class="shop-container slides">
+                                                <div class="item animate-in slide text-white">
+                                <img class="item-img" src="images/okey-black.webp" alt="Футболка Okey Black">
+                                <div class="content">
+                                    <span class="category">Футболки</span>
+                                    <h2 class="name">Футболка Okey Black</h2>
+									<p class="price">20.00 $</p>                                </div>
+                                <a href="/shop/t-shirts/futbolka-okey-black"></a>
+                            </div>
+                                                    <div class="item animate-in slide limited">
+                                <img class="item-img" src="images/okey-limited.webp" alt="Ветровка Purple Black L.E. 2021">
+                                <div class="content">
+                                    <span class="category">Верхняя одежда</span>
+                                    <h2 class="name">Ветровка Purple Black L.E. 2021</h2>
+									<p class="price">40.00 $</p>                                </div>
+                                <a href="/shop/outerwear/vetrovka-purple-black-le-2021"></a>
+                            </div>
+                                                    <div class="item animate-in slide text-white">
+                                <img class="item-img" src="images/okey-lyrics.webp" alt="Футболки со скидками до 31 декабря">
+                                <div class="content">
+                                    <span class="category">Футболки</span>
+                                    <h2 class="name">Футболки со скидками до 31 декабря</h2>
+									                                </div>
+                                <a href="/shop/t-shirts"></a>
+                            </div>
+                                                    <div class="item animate-in slide ">
+                                <img class="item-img" src="images/okey-gray.webp" alt="Худи Okey Gray">
+                                <div class="content">
+                                    <span class="category">Худи</span>
+                                    <h2 class="name">Худи Okey Gray</h2>
+									<p class="price">50.00 $</p>                                </div>
+                                <a href="shop/hoodie/hudi-okey-gray"></a>
+                            </div>
+                                        </div>
+                <div class="arrows-box">
+                    <div class="arrow-left"></div>
+                    <div class="arrow-right"></div>
+                </div>
+                <div class="bubles">
+                    <div class="active"></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <a class="btn all-catalog" href="/shop">Каталог товаров</a>
+        </div>
+    </section>
+    <section class="music-inner scroll-reveal">
+        <div class="wrapper">
+            <h2>Дискография <span class="animate-in">Новый трек</span></h2>
+            <div class="sort">
+                <button type="button" class="btn active" data-content="album">Альбом</button>
+                <button type="button" class="btn" data-content="clip">Видеоклип</button>
+            </div>
+                                            <div class="music-item scroll-reveal show album" data-content="album">
+                    <div class="img animate-in"><img src="images/photo_2023-04-28-062936-1.webp" alt="Воспоминания"></div>                    <div class="content animate-in">
+                        <div class="author">Тима Белорусских</div>
+                        <h1 class="song-name">Воспоминания</h1>
+                        <div class="date">Дата релиза: 28 апреля 2023</div>
+                        <div class="compositor">Исполнитель: Тима Белорусских</div>
+                        <div class="label">Лэйбл: Тима Белорусских</div>
+                        <div class="tracks">Треков: 1</div>
+                        <div class="platform-grid">
+                        	<a href="https://music.apple.com/at/album/%D0%B2%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F-single/1681083261" target="_blank" class="apple item"></a><a href="https://open.spotify.com/album/1oTeM2SqKfAa31evknPUDT?referral=labelaffiliate&amp;utm_source=1011lwJtD4Jc&amp;utm_medium=Indie_Believe&amp;utm_campaign=labelaffiliate" target="_blank" class="spotify item"></a><a href="https://music.yandex.ru/album/25661020" target="_blank" class="yandex item"></a><a href="https://music.youtube.com/search?q=%D0%92%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F+%D0%A2%D0%B8%D0%BC%D0%B0+%D0%91%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D1%85" target="_blank" class="youtube item"></a><a href="https://boom.ru/redirect/album/22770639?mt_sub3=22770639&amp;mt_sub1=%25D0%2592%25D0%25BE%25D1%2581%25D0%25BF%25D0%25BE%25D0%25BC%25D0%25B8%25D0%25BD%25D0%25B0%25D0%25BD%25D0%25B8%25D1%258F&amp;mt_click_id=mt-uvjaj4-1682656319-2957979016&amp;mt_sub2=%2527album%2527" target="_blank" class="vk item"></a>                            <button class="more"><span></span></button>
+                        </div>
+                        <div class="window-background">
+                            <div class="window-body">
+                                <div class="window-content">
+                                    <img src="images/photo_2023-04-28-062936-1.webp" alt="Воспоминания">
+                                    <div class="author">Тима Белорусских</div>
+                                    <h2 class="song-name"><a href="/music/vospominaniya">Воспоминания</a></h2>
+                                    <div class="divider"></div>
+                                    <span class="platform">Послушать через</span>
+                                    <div class="platform-grid">
+                                    <a href="https://music.apple.com/at/album/%D0%B2%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F-single/1681083261" target="_blank" class="apple item"></a><a href="https://open.spotify.com/album/1oTeM2SqKfAa31evknPUDT?referral=labelaffiliate&amp;utm_source=1011lwJtD4Jc&amp;utm_medium=Indie_Believe&amp;utm_campaign=labelaffiliate" target="_blank" class="spotify item"></a><a href="https://music.yandex.ru/album/25661020" target="_blank" class="yandex item"></a><a href="https://music.youtube.com/search?q=%D0%92%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F+%D0%A2%D0%B8%D0%BC%D0%B0+%D0%91%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D1%85" target="_blank" class="youtube item"></a><a href="https://boom.ru/redirect/album/22770639?mt_sub3=22770639&amp;mt_sub1=%25D0%2592%25D0%25BE%25D1%2581%25D0%25BF%25D0%25BE%25D0%25BC%25D0%25B8%25D0%25BD%25D0%25B0%25D0%25BD%25D0%25B8%25D1%258F&amp;mt_click_id=mt-uvjaj4-1682656319-2957979016&amp;mt_sub2=%2527album%2527" target="_blank" class="vk item"></a>                                    </div>
+                                </div>
+                                <span class="close"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                                <div class="music-item scroll-reveal  clip" data-content="clip">
+                    <div class="img animate-in"><img src="images/photo_2023-04-28-062936-1.webp" alt="Воспоминания"></div><div class="video-modal"><div><iframe src="https://www.youtube.com/embed/x7CFEpfEHNE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><span class="close"></span></div></div>                    <div class="content animate-in">
+                        <div class="author">Тима Белорусских</div>
+                        <h1 class="song-name">Воспоминания</h1>
+                        <div class="date">Дата релиза: 28 апреля 2023</div>
+                        <div class="compositor">Исполнитель: Тима Белорусских</div>
+                        <div class="label">Лэйбл: Тима Белорусских</div>
+                        <div class="tracks">Треков: 1</div>
+                        <div class="platform-grid">
+                        	<a href="https://music.apple.com/at/album/%D0%B2%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F-single/1681083261" target="_blank" class="apple item"></a><a href="https://open.spotify.com/album/1oTeM2SqKfAa31evknPUDT?referral=labelaffiliate&amp;utm_source=1011lwJtD4Jc&amp;utm_medium=Indie_Believe&amp;utm_campaign=labelaffiliate" target="_blank" class="spotify item"></a><a href="https://music.yandex.ru/album/25661020" target="_blank" class="yandex item"></a><a href="https://music.youtube.com/search?q=%D0%92%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F+%D0%A2%D0%B8%D0%BC%D0%B0+%D0%91%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D1%85" target="_blank" class="youtube item"></a><a href="https://boom.ru/redirect/album/22770639?mt_sub3=22770639&amp;mt_sub1=%25D0%2592%25D0%25BE%25D1%2581%25D0%25BF%25D0%25BE%25D0%25BC%25D0%25B8%25D0%25BD%25D0%25B0%25D0%25BD%25D0%25B8%25D1%258F&amp;mt_click_id=mt-uvjaj4-1682656319-2957979016&amp;mt_sub2=%2527album%2527" target="_blank" class="vk item"></a>                            <button class="more"><span></span></button>
+                        </div>
+                        <div class="window-background">
+                            <div class="window-body">
+                                <div class="window-content">
+                                    <img src="images/photo_2023-04-28-062936-1.webp" alt="Воспоминания">
+                                    <div class="author">Тима Белорусских</div>
+                                    <h2 class="song-name"><a href="/music/vospominaniya">Воспоминания</a></h2>
+                                    <div class="divider"></div>
+                                    <span class="platform">Послушать через</span>
+                                    <div class="platform-grid">
+                                    <a href="https://music.apple.com/at/album/%D0%B2%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F-single/1681083261" target="_blank" class="apple item"></a><a href="https://open.spotify.com/album/1oTeM2SqKfAa31evknPUDT?referral=labelaffiliate&amp;utm_source=1011lwJtD4Jc&amp;utm_medium=Indie_Believe&amp;utm_campaign=labelaffiliate" target="_blank" class="spotify item"></a><a href="https://music.yandex.ru/album/25661020" target="_blank" class="yandex item"></a><a href="https://music.youtube.com/search?q=%D0%92%D0%BE%D1%81%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D1%8F+%D0%A2%D0%B8%D0%BC%D0%B0+%D0%91%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D1%85" target="_blank" class="youtube item"></a><a href="https://boom.ru/redirect/album/22770639?mt_sub3=22770639&amp;mt_sub1=%25D0%2592%25D0%25BE%25D1%2581%25D0%25BF%25D0%25BE%25D0%25BC%25D0%25B8%25D0%25BD%25D0%25B0%25D0%25BD%25D0%25B8%25D1%258F&amp;mt_click_id=mt-uvjaj4-1682656319-2957979016&amp;mt_sub2=%2527album%2527" target="_blank" class="vk item"></a>                                    </div>
+                                </div>
+                                <span class="close"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            <a class="btn all-album" href="/music">Дискография</a>
+        </div>
+    </section>
+    <section class="blog scroll-reveal">
+        <div class="wrapper">
+            <h2>Блог <span class="animate-in">news</span></h2>
+            <div class="sort">
+                <a href="/blog" class="btn active">Новости</a>
+                <a href="/blog?c=media" class="btn">Фото и видео</a>
+                <a href="/blog?c=interview" class="btn">Интервью</a>
+                <a href="/blog?c=backstage" class="btn">Бэкстейдж</a>
+                <a href="/blog?c=shop" class="btn">Shop</a>
+            </div>
+            <div class="main-slider" data-timer="999999">
+                <div class="blog-container slides">
+                                            <div class="blog-item slide">
+                                                                        <img src="images/snimok-ekrana-2023-04-26-v-174715.webp" alt="Сниппет - Воспоминания">
+                                                                     <div class="date"><span class="time">2023-04-26 18:53:12</span><span class="category">Бэкстейдж</span></div>
+                                <a href="/blog/snippet-vospominaniya" class="title"><h2>Сниппет - Воспоминания</h2></a>
+                                <a class="arrow-box" href="/blog/snippet-vospominaniya"><span class="arrow"></span></a>
+                            </div>
+                                                        <div class="blog-item slide">
+                                                                        <img src="images/tima-moskva.jpeg" alt="Друзья, отличные новости">
+                                                                     <div class="date"><span class="time">2023-02-27 23:01:12</span><span class="category">Бэкстейдж</span></div>
+                                <a href="/blog/druzjya-otlichnie-novosti" class="title"><h2>Друзья, отличные новости</h2></a>
+                                <a class="arrow-box" href="/blog/druzjya-otlichnie-novosti"><span class="arrow"></span></a>
+                            </div>
+                                                        <div class="blog-item slide">
+                                                                        <img src="images/znatok.webp" alt="Скоро клип Знаток">
+                                                                     <div class="date"><span class="time">2021-12-02 19:42:27</span><span class="category">Бэкстейдж</span></div>
+                                <a href="/blog/novostj-4" class="title"><h2>Скоро клип Знаток</h2></a>
+                                <a class="arrow-box" href="/blog/novostj-4"><span class="arrow"></span></a>
+                            </div>
+                                                        <div class="blog-item slide">
+                                                                <div class="date"><span class="time">2021-12-02 19:42:04</span><span class="category">Бэкстейдж</span></div>
+                                <a href="/blog/novostj-3" class="title"><h2>Интервью Дудю</h2></a>
+                                <a class="arrow-box" href="/blog/novostj-3"><span class="arrow"></span></a>
+                            </div>
+                                                        <div class="blog-item slide">
+                                                                        <img src="images/5447162929658991398.webp" alt="Новый мерч скоро в сети">
+                                                                     <div class="date"><span class="time">2021-12-02 18:16:52</span><span class="category">Бэкстейдж</span></div>
+                                <a href="/blog/testovaya-novostj-2" class="title"><h2>Новый мерч скоро в сети</h2></a>
+                                <a class="arrow-box" href="/blog/testovaya-novostj-2"><span class="arrow"></span></a>
+                            </div>
+                                                        <div class="blog-item slide">
+                                                                        <img src="images/okey-1.webp" alt="Как снимали Окей">
+                                                                     <div class="date"><span class="time">2021-12-02 14:59:19</span><span class="category">Бэкстейдж</span></div>
+                                <a href="/blog/testovaya-novostj" class="title"><h2>Как снимали Окей</h2></a>
+                                <a class="arrow-box" href="/blog/testovaya-novostj"><span class="arrow"></span></a>
+                            </div>
+                                            </div>
+                <div class="bubles">
+                    <div class="active"></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <a class="btn all-news" href="/blog">Все новости</a>
+        </div>
+    </section>
+</main>
+<footer id="footer" class="footer wrapper">
+    <div class="top">
+        <div class="grid-container">
+            <div class="item">
+                <h2 class="footer-title">Информация</h2>
+                <a href="/delivery">Доставка и оплата</a>
+                <a href="/faq">FAQ</a>
+                <a href="/where-to-buy">Где купить</a>
+                <a href="/shop">Акции и скидки</a>
+                <a href="/wholesale-supply">Оптовые поставки</a>
+            </div>
+            <div class="item">
+                <h2 class="footer-title"><a href="/blog">Блог</a></h2>
+                <a href="/blog">Фото и видео</a>
+                <a href="/blog">Бэкстейдж</a>
+                <a href="/blog">Shop</a>
+                <a href="/blog">Интервью</a>
+                <a href="/blog">Новости</a>
+            </div>
+            <div class="item">
+                <h2 class="footer-title"><a href="/shop">Магазин</a></h2>
+                <a href="/shop">Все товары</a>
+                <a href="/shop/t-shirts">Футболки</a>
+                <a href="/shop/outerwear">Верхняя одежда</a>
+                <a href="/shop/hoodie">Худи</a>
+                <a href="/shop/accessories">Аксесуары</a>
+            </div>
+        </div>
+        <div class="socials">
+            <br>            <div class="links">
+                <a class="icon insta" href="https://www.instagram.com/belorusskih.love/"></a>
+                <a class="icon tg" href="https://t.me/belorusskih1love"></a>
+                <a class="icon tg-bot" href="https://t.me/belorusskih_love_bot"></a>
+                <a class="icon vk" href="https://vk.com/belorusskih"></a>
+                <a class="icon yt" href="https://www.youtube.com/channel/UC2MmSxjVS8QLVqyTl28WCzw"></a>
+                <a class="icon tiktok" href="https://www.tiktok.com/@tima.belorusskih"></a>
+            </div>
+            <a href="mailto:belorusskihbooking@gmail.com" class="mail">belorusskihbooking@gmail.com</a>
+            <div class="payments-box">
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+        </div>
+        <a class="logo" href="/"></a>
     </div>
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    <div class="requisites">
+        <!-- <div class="cont">
+            <div>ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ МОРОЗОВ ТИМОФЕЙ АНДРЕЕВИЧ</div>
+            <div>Адрес: РБ, МИНСКАЯ ОБЛ., СМОЛЕВИЧСКИЙ РАЙОН, АГ. СЛОБОДА, УЛ. ПОДЛЕСНАЯ, Д. 58</div>
+            <div>УНП: 193465744</div>
+            <div>"Текущий (расчетный): BY08ALFA30132687780010270000 в BYN в ЗАО «Альфа-Банк», БИК: ALFABY2X"</div>
+            <div>Дата регистрации 15 июля 2021 г. номер 0775867</div>
+            <div>Главный специалист управления экономики райисполкома</div>
+        </div> -->
+        <!-- <button type="button">Показать полностью</button> -->
+    </div>
+    <div class="bottom-fixed">
+        <div class="socials">
+            <a class="icon insta" href="https://www.instagram.com/belorusskih.love/"></a>
+            <a class="icon tg" href="https://t.me/belorusskih1love"></a>
+            <a class="icon tg-bot" href="https://t.me/belorusskih_love_bot"></a>
+            <a class="icon vk" href="https://vk.com/belorusskih"></a>
+            <a class="icon yt" href="https://www.youtube.com/channel/UC2MmSxjVS8QLVqyTl28WCzw"></a>
+            <a class="icon tiktok" href="https://www.tiktok.com/@tima.belorusskih"></a>
+        </div>
+        <button class="scroll"></button>
+        <a href="mailto:belorusskihbooking@gmail.com" class="mail">belorusskihbooking@gmail.com</a>
+    </div>
+    <div class="bottom">
+        <div class="copyright">© 2019-2023 Tima Belorusskih. All rights reserved</div>
+        <div class="wr-development">
+            <a href="https://chr.by" target="_blank">
+                <span>�&nbsp;азработка сайта</span>
+                <svg width="59" height="40" viewBox="0 0 59 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.7843 15.139H12.4967V27.0906H10.7843V21.7695H8.66963V27.0906H6.95782V15.139H8.66963V20.2598H10.7843V15.139ZM4.77404 15.836C4.52821 15.5831 4.23766 15.3894 3.90254 15.249C3.566 15.1081 3.20159 15.0382 2.81136 15.0382C2.39782 15.0382 2.01923 15.1081 1.6775 15.249C1.33624 15.3894 1.04301 15.5826 0.797343 15.8281C0.549784 16.0741 0.36002 16.3649 0.225532 16.7001C0.0913588 17.0358 0.0249023 17.3997 0.0249023 17.7919V24.3711C0.0249023 24.9191 0.111674 25.3738 0.284115 25.7314C0.458761 26.0892 0.67876 26.3777 0.947579 26.5958C1.2164 26.8147 1.51845 26.9683 1.85356 27.0574C2.18947 27.1476 2.51955 27.1919 2.84317 27.1919C3.22443 27.1919 3.57986 27.1166 3.90963 26.9646C4.24033 26.8149 4.52805 26.6125 4.77372 26.3612C5.02034 26.1086 5.21325 25.8164 5.35419 25.479C5.49404 25.144 5.56333 24.7916 5.56333 24.4221V23.6834H3.85167V24.2706C3.85167 24.5056 3.81766 24.7018 3.75167 24.858C3.68301 25.0152 3.5964 25.1382 3.4901 25.2287C3.38475 25.3172 3.26616 25.3821 3.13829 25.4212C3.009 25.4596 2.88947 25.479 2.77797 25.479C2.38506 25.479 2.11467 25.3627 1.9638 25.1265C1.81183 24.8919 1.73624 24.6012 1.73624 24.2536V18.1434C1.73624 17.7424 1.80742 17.4094 1.946 17.1459C2.08663 16.8824 2.36884 16.7505 2.79435 16.7505C3.11797 16.7505 3.37593 16.8741 3.566 17.1205C3.75624 17.3664 3.85152 17.6583 3.85152 17.9935V18.5642H5.5638V17.8923C5.5638 17.4783 5.49451 17.0953 5.35467 16.7424C5.21356 16.3892 5.02097 16.0883 4.77404 15.836ZM58.5827 15.2078L46.7764 39.8423L28.1161 34.272L25.7433 26.6133C25.5329 26.7631 25.3103 26.8935 25.0646 26.9821C24.7232 27.1054 24.3802 27.1667 24.0315 27.1667C23.6847 27.1667 23.3405 27.1054 22.9997 26.9821C22.658 26.8585 22.351 26.6768 22.0772 26.4358C21.8022 26.1963 21.581 25.8939 21.4137 25.5297C21.2457 25.166 21.1633 24.7387 21.1633 24.2453V21.5638C21.1633 21.5638 19.5759 20.3728 19.5589 20.4105C19.3405 20.9084 18.9572 21.3083 18.4095 21.6109L20.2551 27.066H18.4432L16.8477 21.9635H15.8244V27.066H14.1121V15.7249L14.1247 15.0368L25.2092 1.42148L50.7007 0.176758L58.5827 15.2078ZM48.8813 17.0917L57.6539 15.0133L50.6033 1.41849L48.8813 17.0917ZM49.9257 1.43408L34.6699 8.48448L34.6803 8.49109L30.3712 16.0538L32.2523 21.4678H32.2863L34.4687 15.139H36.1306V27.0906H34.4173V19.822H34.3841L32.6879 24.9598H31.8315L30.1539 19.822H30.1205V27.0906L33.872 29.7197L37.7411 26.481V15.1391H42.8449V16.75H39.4537V20.2598H42.4077V21.8705H39.4537V24.9905L48.1526 17.4117L49.9257 1.43408ZM26.4183 2.08684L34.5383 7.73077L49.0933 1.0029L26.4183 2.08684ZM18.1693 18.6136C18.1693 18.3125 18.1528 18.0464 18.1191 17.8163C18.0862 17.5876 18.0156 17.3912 17.9099 17.2284C17.8027 17.0667 17.6551 16.9473 17.4641 16.8684C17.2744 16.7903 17.0222 16.7498 16.709 16.7498H15.8199V20.4769H16.7928C17.0953 20.4769 17.3359 20.4349 17.5155 20.3509C17.6932 20.2676 17.831 20.147 17.9258 19.9903C18.021 19.8335 18.086 19.6409 18.1191 19.4106C18.1528 19.1818 18.1693 18.9161 18.1693 18.6136ZM33.8413 8.13565L25.4452 2.25881L14.9553 15.1391H16.8603C17.2852 15.1391 17.6551 15.2042 17.9907 15.307L33.8413 8.13565ZM25.186 17.9596C25.186 17.5453 25.0715 17.2402 24.8416 17.0448C24.6132 16.8481 24.341 16.75 24.0273 16.75C23.7151 16.75 23.443 16.8483 23.2142 17.0448C22.9847 17.2402 22.8698 17.5453 22.8698 17.9596V22.0868V22.9875V24.2701C22.8698 24.6854 22.9846 24.9901 23.2142 25.1861C23.443 25.3816 23.7151 25.4785 24.0273 25.4785C24.341 25.4785 24.6132 25.3816 24.8416 25.1861C24.9569 25.0879 25.0498 24.9643 25.0999 24.8101C25.2011 24.4946 25.186 23.7438 25.186 23.7438V17.9596ZM26.6463 16.6838C26.8147 17.0519 26.8988 17.4779 26.8988 17.9596V20.7385L28.4093 18.0879V15.139H30.054L30.0671 15.1769L33.543 9.07644L18.789 15.7128C19.514 16.2744 19.8818 17.247 19.8818 18.6465C19.8818 18.982 19.8558 19.292 19.8036 19.5816L21.1588 20.6873V17.9598C21.1588 17.478 21.2411 17.0522 21.4092 16.684C21.5764 16.3138 21.7977 16.0098 22.0726 15.7694C22.3465 15.5294 22.6534 15.3465 22.9951 15.2232C23.3359 15.0994 23.6802 15.038 24.0269 15.038C24.3756 15.038 24.7184 15.0994 25.06 15.2232C25.4014 15.3465 25.7093 15.5294 25.9825 15.7694C26.257 16.0097 26.4786 16.3138 26.6463 16.6838ZM26.8986 22.1487V24.2701C26.8986 24.4876 26.8766 24.6878 26.8397 24.8772C26.8224 24.9664 28.409 25.9835 28.409 25.9835V19.4986L26.8986 22.1487ZM45.2728 38.7371L26.6391 25.6139C26.577 25.7201 26.3819 26.0101 26.3087 26.1035L28.6681 33.7171L45.2728 38.7371ZM48.0699 18.4122L40.0688 25.3786H42.8449V27.0906H38.1035L34.4651 30.267L46.238 38.635L48.0699 18.4122ZM57.5506 15.7541L48.8197 17.8243L47.1602 37.279L57.5506 15.7541ZM8.43057 30.1572C8.44128 30.1572 8.45215 30.1591 8.46301 30.1631C8.47372 30.1673 8.48412 30.1741 8.49419 30.1843L8.67577 30.3753C8.59624 30.4793 8.49687 30.5577 8.37656 30.6106C8.25703 30.6632 8.11514 30.69 7.95215 30.69C7.80191 30.69 7.66774 30.6645 7.54868 30.6136C7.4301 30.5626 7.329 30.4922 7.24632 30.4018C7.16411 30.3122 7.10065 30.2056 7.0564 30.0827C7.01199 29.9591 6.98994 29.8248 6.98994 29.6802C6.98994 29.5328 7.01388 29.3975 7.06144 29.2747C7.10963 29.1514 7.17656 29.0449 7.26364 28.9555C7.35026 28.8662 7.45388 28.7968 7.5753 28.7465C7.69593 28.6974 7.82947 28.6728 7.97482 28.6728C8.04884 28.6728 8.11892 28.6786 8.18427 28.6916C8.24978 28.7054 8.3112 28.7227 8.36821 28.746C8.42506 28.769 8.4775 28.7968 8.52506 28.8294C8.57309 28.862 8.61545 28.8975 8.65262 28.9355L8.49813 29.1423C8.48789 29.1552 8.47656 29.1665 8.46285 29.1769C8.44947 29.1875 8.43041 29.1923 8.40616 29.1923C8.38978 29.1923 8.37404 29.1892 8.35986 29.1821C8.34553 29.175 8.32994 29.1659 8.31341 29.1557C8.29703 29.145 8.27955 29.1338 8.26034 29.1218C8.24097 29.1095 8.21797 29.0982 8.19104 29.0875C8.16443 29.0775 8.13309 29.0686 8.0975 29.061C8.06191 29.0536 8.01986 29.0508 7.9723 29.0508C7.89608 29.0508 7.82695 29.0646 7.76427 29.0927C7.70112 29.1204 7.64742 29.1616 7.60175 29.2153C7.55593 29.2692 7.52065 29.335 7.49577 29.4131C7.4712 29.4909 7.4586 29.5807 7.4586 29.6807C7.4586 29.782 7.4723 29.872 7.50002 29.9501C7.52742 30.0289 7.56506 30.0953 7.61215 30.1489C7.66002 30.2027 7.7153 30.2437 7.7786 30.2716C7.84207 30.2993 7.90947 30.3138 7.9816 30.3138C8.02348 30.3138 8.06159 30.3119 8.09545 30.3076C8.12994 30.3034 8.16222 30.2969 8.19199 30.2873C8.22175 30.2777 8.24978 30.2651 8.27577 30.2495C8.30223 30.2338 8.32852 30.2135 8.35545 30.1886C8.36679 30.1802 8.37813 30.1725 8.39136 30.1664C8.40396 30.1605 8.41687 30.1572 8.43057 30.1572ZM11.5784 29.6802C11.5784 29.8229 11.5536 29.9558 11.5044 30.0782C11.4555 30.2016 11.3862 30.3086 11.2969 30.3991C11.2074 30.4898 11.0997 30.5612 10.9732 30.6125C10.8474 30.664 10.7074 30.6895 10.5539 30.6895C10.4002 30.6895 10.26 30.664 10.1339 30.6125C10.0076 30.5612 9.89923 30.4898 9.80915 30.3991C9.71955 30.3086 9.64963 30.2016 9.60049 30.0782C9.55136 29.9558 9.52632 29.8229 9.52632 29.6802C9.52632 29.5375 9.55136 29.4046 9.60049 29.2816C9.64963 29.159 9.71955 29.0525 9.80915 28.9618C9.89908 28.8717 10.0076 28.8007 10.1339 28.7492C10.26 28.6979 10.4002 28.6727 10.5539 28.6727C10.7074 28.6727 10.8474 28.6979 10.9732 28.7498C11.0997 28.8018 11.2074 28.8731 11.2969 28.9632C11.3862 29.0531 11.4555 29.1601 11.5044 29.2829C11.5539 29.406 11.5784 29.538 11.5784 29.6802ZM11.1092 29.6802C11.1092 29.5824 11.097 29.495 11.0718 29.4163C11.0462 29.3385 11.0098 29.2727 10.9625 29.2177C10.9147 29.1635 10.8572 29.1226 10.7882 29.0931C10.7199 29.0645 10.6416 29.0503 10.5539 29.0503C10.4654 29.0503 10.3866 29.0648 10.3175 29.0931C10.2482 29.1226 10.1896 29.1635 10.1429 29.2177C10.0953 29.2727 10.0588 29.3385 10.0332 29.4163C10.0082 29.495 9.99514 29.5824 9.99514 29.6802C9.99514 29.7787 10.0082 29.867 10.0332 29.9454C10.0588 30.0235 10.0953 30.0897 10.1429 30.1442C10.1896 30.198 10.2482 30.2394 10.3175 30.2678C10.3866 30.2964 10.4654 30.3108 10.5539 30.3108C10.6416 30.3108 10.7199 30.2963 10.7882 30.2678C10.8572 30.2394 10.9147 30.198 10.9625 30.1442C11.0098 30.0897 11.0462 30.0235 11.0718 29.9454C11.0972 29.8668 11.1092 29.7787 11.1092 29.6802ZM14.8786 28.6938V30.6681H14.4747V29.5325C14.4747 29.5064 14.475 29.478 14.4766 29.447C14.4778 29.4163 14.4802 29.3851 14.4844 29.3531L13.9595 30.3687C13.9436 30.4004 13.9216 30.4242 13.894 30.4404C13.8663 30.4568 13.835 30.4645 13.7995 30.4645H13.7377C13.7022 30.4645 13.6706 30.4564 13.643 30.4404C13.6156 30.424 13.5937 30.4004 13.5772 30.3687L13.0528 29.3512C13.0556 29.3832 13.0575 29.4155 13.0597 29.4464C13.0614 29.4774 13.0625 29.5064 13.0625 29.5325V30.6681H12.6584V28.6938H13.0079C13.0277 28.6938 13.0455 28.6947 13.0605 28.695C13.0753 28.696 13.0885 28.6983 13.1002 28.7031C13.112 28.7079 13.1225 28.7147 13.1323 28.7245C13.1413 28.7342 13.151 28.7472 13.1597 28.7645L13.6681 29.7657C13.6863 29.8004 13.7038 29.8358 13.7202 29.873C13.7369 29.91 13.7529 29.9479 13.7682 29.987C13.7836 29.9468 13.7999 29.9086 13.8166 29.8705C13.8334 29.8323 13.8509 29.7958 13.8704 29.7621L14.3772 28.7646C14.3857 28.7473 14.3951 28.7344 14.4047 28.7246C14.414 28.7149 14.4252 28.7083 14.4362 28.7032C14.4487 28.6988 14.4614 28.6961 14.4764 28.6952C14.4915 28.6949 14.5088 28.6939 14.5292 28.6939H14.8786V28.6938ZM16.7679 28.6938C16.9068 28.6938 17.0266 28.7103 17.1258 28.7429C17.2265 28.7758 17.3087 28.821 17.3732 28.8791C17.4378 28.9369 17.4854 29.0053 17.5159 29.0837C17.5465 29.1624 17.5618 29.2473 17.5618 29.3383C17.5618 29.4371 17.5465 29.5278 17.515 29.6094C17.4832 29.692 17.4348 29.7626 17.3699 29.8216C17.3049 29.8801 17.2224 29.9256 17.1225 29.9588C17.023 29.9917 16.9046 30.0083 16.7682 30.0083H16.5293V30.6678H16.0715V28.6936H16.7679V28.6938ZM16.7679 29.6623C16.8874 29.6623 16.9729 29.6342 17.0255 29.5771C17.0775 29.5205 17.1038 29.4409 17.1038 29.3383C17.1038 29.2938 17.0973 29.2522 17.084 29.2153C17.0706 29.1782 17.0496 29.1464 17.0224 29.1197C16.9942 29.0933 16.9599 29.0727 16.918 29.0582C16.8759 29.044 16.8258 29.0366 16.7681 29.0366H16.5292V29.6623H16.7679ZM19.7955 30.3021V30.6681H18.6057V28.6938H19.0636V30.3021H19.7955ZM21.2995 29.0459V29.507H21.9205V29.8453H21.2995V30.3155H22.1098V30.6678H20.8389V28.6936H22.1098V29.0456L21.2995 29.0459ZM24.8972 30.6681H24.4389C24.409 30.6681 24.3849 30.661 24.3666 30.6462C24.3479 30.632 24.3337 30.6149 24.3225 30.5952L23.9268 29.9034C23.9197 29.9237 23.9115 29.9405 23.9021 29.9553L23.5339 30.595C23.5211 30.6131 23.5065 30.6297 23.4892 30.6446C23.472 30.6609 23.4496 30.6676 23.4227 30.6676H22.9944L23.6303 29.6514L23.0188 28.6933H23.4773C23.5065 28.6933 23.5285 28.6972 23.5429 28.7046C23.5567 28.712 23.5692 28.7249 23.5797 28.7434L23.9729 29.4087C23.9777 29.3968 23.9829 29.3857 23.9884 29.3746C23.9945 29.3642 24.0014 29.3527 24.0082 29.3407L24.3526 28.7505C24.3652 28.7305 24.3784 28.7153 24.3926 28.7065C24.4062 28.6975 24.4236 28.6933 24.4446 28.6933H24.8841L24.2647 29.6323L24.8972 30.6681ZM11.8343 34.2668H11.4797C11.4397 34.2668 11.4076 34.2582 11.3833 34.2391C11.3588 34.221 11.3407 34.1968 11.3276 34.1681L11.211 33.8237H10.4605L10.344 34.1681C10.334 34.1936 10.3162 34.2161 10.2901 34.2368C10.2644 34.2568 10.2326 34.2668 10.1947 34.2668H9.83703L10.6013 32.2925H11.0701L11.8343 34.2668ZM11.1066 33.5117L10.924 32.9714C10.9103 32.9372 10.8958 32.8966 10.8805 32.85C10.8649 32.8032 10.8498 32.7535 10.8347 32.6987C10.8211 32.7541 10.806 32.8054 10.7915 32.8519C10.7758 32.8993 10.7613 32.9396 10.7476 32.9739L10.5655 33.5116H11.1066V33.5117ZM13.6843 33.2442H14.3866V34.0774C14.2851 34.1516 14.1775 34.2051 14.063 34.2388C13.9492 34.2717 13.8298 34.2884 13.7051 34.2884C13.5424 34.2884 13.3945 34.2629 13.2614 34.212C13.1277 34.1613 13.0136 34.0906 12.9191 34.0005C12.8243 33.9106 12.7506 33.8043 12.6994 33.6812C12.6479 33.5575 12.6216 33.4232 12.6216 33.279C12.6216 33.1314 12.6465 32.996 12.6953 32.8735C12.7441 32.7501 12.814 32.6432 12.9044 32.5539C12.9956 32.4645 13.1052 32.3952 13.2337 32.3454C13.3627 32.2957 13.5069 32.2712 13.6657 32.2712C13.748 32.2712 13.8251 32.2777 13.8973 32.2912C13.9695 32.3048 14.0362 32.3232 14.0975 32.3467C14.1583 32.3703 14.214 32.398 14.2647 32.4309C14.3151 32.4629 14.3606 32.4983 14.4005 32.5361L14.2676 32.7382C14.2468 32.7698 14.2199 32.7895 14.1866 32.7969C14.1537 32.8043 14.1181 32.7957 14.08 32.7723C14.0441 32.7505 14.0098 32.7317 13.9781 32.7161C13.9458 32.7001 13.9129 32.6875 13.8797 32.6774C13.8458 32.6675 13.811 32.6604 13.7737 32.6558C13.7367 32.6516 13.6953 32.6487 13.649 32.6487C13.5633 32.6487 13.4858 32.6638 13.4178 32.6946C13.3488 32.7246 13.2904 32.7672 13.2419 32.8223C13.1934 32.8775 13.1562 32.9437 13.1304 33.021C13.1043 33.0982 13.0909 33.184 13.0909 33.2796C13.0909 33.3845 13.1051 33.4774 13.1347 33.5586C13.1635 33.6401 13.204 33.7081 13.257 33.7646C13.3099 33.8204 13.3732 33.8634 13.4465 33.893C13.5203 33.9221 13.6021 33.9363 13.691 33.9363C13.7468 33.9363 13.7967 33.9311 13.8418 33.9199C13.886 33.9098 13.9296 33.895 13.972 33.8769V33.5771H13.777C13.7482 33.5771 13.7255 33.5697 13.7093 33.5541C13.6928 33.5385 13.6846 33.5194 13.6846 33.496V33.2442H13.6843ZM15.9654 32.6446V33.1062H16.586V33.4442H15.9654V33.9147H16.7756V34.2668H15.5046V32.2925H16.7756V32.6446H15.9654ZM19.5923 32.2925V34.2668H19.3534C19.3186 34.2668 19.2885 34.2613 19.2649 34.2503C19.2408 34.239 19.2175 34.2193 19.1937 34.1906L18.2624 33.0131C18.2665 33.0486 18.269 33.0824 18.2706 33.1153C18.2717 33.1483 18.2723 33.1793 18.2723 33.2084V34.2668H17.8684V32.2925H18.1093C18.1293 32.2925 18.1463 32.2935 18.1599 32.295C18.1731 32.2969 18.1858 32.3005 18.1961 32.3054C18.2073 32.3103 18.2172 32.3171 18.2277 32.3264C18.2375 32.336 18.2485 32.3476 18.2611 32.3626L19.2003 33.5487C19.1962 33.5108 19.1929 33.4736 19.1912 33.4385C19.1896 33.4026 19.1885 33.369 19.1885 33.3368V32.2922L19.5923 32.2925ZM22.1151 33.7563C22.1265 33.7563 22.1369 33.7582 22.1479 33.7621C22.1588 33.7664 22.1692 33.7728 22.1792 33.7831L22.3608 33.9744C22.2811 34.078 22.1814 34.1568 22.0618 34.2094C21.9421 34.2623 21.8003 34.2887 21.6373 34.2887C21.4869 34.2887 21.3528 34.2632 21.2337 34.2122C21.115 34.1615 21.014 34.0908 20.9314 34.0009C20.8492 33.9108 20.7855 33.8046 20.7413 33.6813C20.6969 33.5577 20.675 33.4235 20.675 33.2793C20.675 33.1319 20.6991 32.9963 20.7465 32.8736C20.7947 32.7503 20.8614 32.6435 20.9487 32.5541C21.0351 32.4648 21.1389 32.3953 21.2602 32.3457C21.3813 32.296 21.5144 32.2714 21.66 32.2714C21.7339 32.2714 21.8036 32.2769 21.869 32.2905C21.9347 32.3037 21.9962 32.3218 22.0532 32.3449C22.1099 32.3679 22.1625 32.3953 22.2101 32.4279C22.2583 32.4609 22.3008 32.4961 22.338 32.5341L22.1832 32.741C22.1729 32.7539 22.1616 32.7653 22.1479 32.7755C22.1347 32.7859 22.1151 32.7909 22.0912 32.7909C22.075 32.7909 22.0592 32.7878 22.0449 32.7807C22.0304 32.7736 22.0151 32.7648 21.9988 32.7542C21.9824 32.7437 21.9649 32.7327 21.9455 32.7207C21.926 32.7078 21.9032 32.6972 21.8762 32.6861C21.8498 32.6761 21.8183 32.6672 21.7825 32.6596C21.7473 32.6525 21.7054 32.649 21.6578 32.649C21.5816 32.649 21.5121 32.6632 21.4496 32.6914C21.3866 32.7194 21.3328 32.7604 21.2871 32.8139C21.2411 32.8679 21.206 32.9338 21.1813 33.0122C21.1564 33.0898 21.1441 33.1794 21.1441 33.2796C21.1441 33.381 21.1575 33.4706 21.1854 33.5494C21.2126 33.6275 21.2501 33.6941 21.2975 33.7476C21.3449 33.8018 21.4007 33.8424 21.4638 33.8701C21.5274 33.8983 21.5947 33.9125 21.6666 33.9125C21.7087 33.9125 21.7468 33.9106 21.7808 33.9064C21.815 33.9024 21.8473 33.8957 21.8773 33.8861C21.9069 33.8763 21.935 33.8637 21.9608 33.8483C21.9876 33.8325 22.0139 33.8122 22.0408 33.7876C22.0521 33.7788 22.0635 33.7712 22.0764 33.7653C22.0888 33.7593 22.1018 33.7563 22.1151 33.7563ZM24.3178 33.516V34.2668H23.8592V33.516L23.1441 32.2924H23.5479C23.5874 32.2924 23.6191 32.3016 23.6424 32.3198C23.6651 32.3388 23.6841 32.3624 23.6995 32.3911L23.9789 32.9659C24.0025 33.0103 24.0236 33.053 24.0425 33.0927C24.0619 33.1317 24.0781 33.1705 24.0925 33.2083C24.1068 33.1698 24.1219 33.1305 24.1399 33.0914C24.1572 33.0517 24.178 33.0103 24.2013 32.9659L24.478 32.3911C24.4841 32.3797 24.4915 32.3678 24.5011 32.3563C24.5101 32.344 24.5205 32.3333 24.5326 32.3243C24.5449 32.3146 24.5588 32.3068 24.5747 32.3013C24.5907 32.2955 24.6079 32.2924 24.6271 32.2924H25.0334L24.3178 33.516Z" fill="#707480"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="arrow-top"></div>
+    </div>
+    <div class="window-background cart-succes" style="display: none;">
+        <div class="window-body">
+            <h2 class="window-title">
+                <span></span>
+                Товар добавлен в корзину
+            </h2>
+            <div class="window-content">
+                <a class="btn" href="/cart">Оформить заказ</a>
+                <div>Продолжить покупки</div>
+            </div>
+            <span class="close"></span>
+        </div>
+    </div>
+        <script>"use strict";</script>
+<script src="js/smart-form.js"></script>
+<script src="js/main.js"></script>
+<script src="js/main-slider.js"></script>
+<script src="js/ws-function.js"></script>
+<script src="js/index.js"></script></footer>
 
-   ym(83562616, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/83562616" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/1.0.0/Vibrant.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="js/bulma-toast.min.js"></script>
-    <script src="js/script.js"></script>
-  </body>
-</html>
+</body></html>
